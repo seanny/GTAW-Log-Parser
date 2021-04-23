@@ -1,7 +1,7 @@
-﻿using System.Windows;
-using System.Windows.Input;
-using Assistant.Controllers;
+﻿using Assistant.Controllers;
 using Assistant.Localization;
+using System.Windows;
+using System.Windows.Input;
 
 namespace Assistant.UI
 {
@@ -52,7 +52,7 @@ namespace Assistant.UI
             Properties.Settings.Default.DisableUCPButton = DisableUCPButton.IsChecked == true;
             Properties.Settings.Default.DisableReleasesButton = DisableReleasesButton.IsChecked == true;
             Properties.Settings.Default.DisableProjectButton = DisableProjectButton.IsChecked == true;
-            if (Timeout.Value != null) Properties.Settings.Default.UpdateCheckTimeout = (int) Timeout.Value;
+            if (Timeout.Value != null) Properties.Settings.Default.UpdateCheckTimeout = (int)Timeout.Value;
 
             Properties.Settings.Default.DisableInformationPopups = DisableInformationPopups.IsChecked == true;
             Properties.Settings.Default.DisableWarningPopups = DisableWarningPopups.IsChecked == true;
@@ -118,7 +118,7 @@ namespace Assistant.UI
             Properties.Settings.Default.DisableForumsButton = true;
             Properties.Settings.Default.DisableFacebrowserButton = true;
             Properties.Settings.Default.DisableUCPButton = true;
-            Properties.Settings.Default.DisableReleasesButton= false;
+            Properties.Settings.Default.DisableReleasesButton = false;
             Properties.Settings.Default.DisableProjectButton = true;
             Properties.Settings.Default.UpdateCheckTimeout = 4;
 
@@ -240,7 +240,7 @@ namespace Assistant.UI
         {
             StyleController.DarkMode = ToggleDarkMode.IsChecked == true;
             StyleController.UpdateTheme();
-            
+
             Timeout.Foreground = _mainWindow.UpdateCheckProgress.Foreground = ToggleDarkMode.IsChecked == true ? System.Windows.Media.Brushes.White : System.Windows.Media.Brushes.Black;
         }
 

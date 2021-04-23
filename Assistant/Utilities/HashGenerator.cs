@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Assistant.Localization;
+using System;
+using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
-using Assistant.Localization;
-using System.Security.Cryptography;
 
 namespace Assistant.Utilities
 {

@@ -1,18 +1,18 @@
-﻿using System;
-using Octokit;
-using System.IO;
-using System.Windows;
-using System.Threading;
-using System.Diagnostics;
-using System.Windows.Input;
-using System.Globalization;
-using Assistant.Controllers;
+﻿using Assistant.Controllers;
 using Assistant.Localization;
-using System.Windows.Controls;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Diagnostics.CodeAnalysis;
 using Microsoft.Win32;
+using Octokit;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.IO;
+using System.Text.RegularExpressions;
+using System.Threading;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Assistant.UI
 {
@@ -300,7 +300,7 @@ namespace Assistant.UI
                 {
                     if (!Properties.Settings.Default.DisableErrorPopups)
                         MessageBox.Show(Strings.NothingParsed, Strings.Error, MessageBoxButton.OK, MessageBoxImage.Error);
-                    
+
                     return;
                 }
 
@@ -354,7 +354,7 @@ namespace Assistant.UI
         /// <param name="e"></param>
         private void RemoveTimestamps_CheckedChanged(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(Parsed.Text) || string.IsNullOrWhiteSpace(DirectoryPath.Text) || !Directory.Exists(DirectoryPath.Text + "client_resources\\") || !File.Exists(DirectoryPath.Text+ AppController.LogLocation))
+            if (string.IsNullOrWhiteSpace(Parsed.Text) || string.IsNullOrWhiteSpace(DirectoryPath.Text) || !Directory.Exists(DirectoryPath.Text + "client_resources\\") || !File.Exists(DirectoryPath.Text + AppController.LogLocation))
                 return;
 
             if (RemoveTimestamps.IsChecked == true)
@@ -447,10 +447,10 @@ namespace Assistant.UI
         private void FinishUpdateCheck()
         {
             _resetEvent.WaitOne();
-            
+
             ToggleControls(true);
             StopUpdateIndicator();
-            
+
             _isUpdateCheckRunning = false;
         }
 
@@ -566,7 +566,7 @@ namespace Assistant.UI
             }
             else
                 if (!Properties.Settings.Default.DisableInformationPopups)
-                    MessageBox.Show(Strings.SettingsAfterClose, Strings.Information, MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(Strings.SettingsAfterClose, Strings.Information, MessageBoxButton.OK, MessageBoxImage.Information);
 
             BackupController.AbortAll();
             SaveSettings();
@@ -745,7 +745,7 @@ namespace Assistant.UI
             {
                 Visible = false,
                 Icon = Properties.Resources.AppIcon,
-                Text= @"GTA World Chat Log Assistant"
+                Text = @"GTA World Chat Log Assistant"
             };
 
             _trayIcon.MouseDoubleClick += TrayIcon_MouseDoubleClick;

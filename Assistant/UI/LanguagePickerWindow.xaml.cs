@@ -1,7 +1,7 @@
-﻿using System;
-using System.Windows;
+﻿using Assistant.Controllers;
+using System;
 using System.Diagnostics;
-using Assistant.Controllers;
+using System.Windows;
 using System.Windows.Threading;
 
 namespace Assistant.UI

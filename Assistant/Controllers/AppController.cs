@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Assistant.Localization;
+using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
-using Assistant.Localization;
 
 namespace Assistant.Controllers
 {
@@ -74,7 +74,7 @@ namespace Assistant.Controllers
                 {
                     file.Refresh();
                 }
-                
+
                 while (potentialLogs.Count > 1)
                 {
                     potentialLogs.Remove(DateTime.Compare(File.GetLastWriteTimeUtc(potentialLogs[0] + @"\.storage"), File.GetLastWriteTimeUtc(potentialLogs[1] + @"\.storage")) > 0 ? potentialLogs[1] : potentialLogs[0]);

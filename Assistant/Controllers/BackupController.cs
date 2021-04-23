@@ -1,12 +1,12 @@
-﻿using System;
-using System.IO;
-using System.Windows;
-using System.Threading;
+﻿using Assistant.Localization;
+using Assistant.Utilities;
+using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using Assistant.Utilities;
-using Assistant.Localization;
+using System.IO;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Windows;
 
 namespace Assistant.Controllers
 {
@@ -220,12 +220,12 @@ namespace Assistant.Controllers
                 {
                     // If the file already exists (i.e. backed up from the interval worker)
                     // check if the current chat log is larger than the old one
-                    
+
                     // Remove any temporary files that may
                     // exist for some reason
                     if (File.Exists(path + ".temp"))
                         File.Delete(path + ".temp");
-                    
+
                     // Write a temporary file
                     using (StreamWriter sw = new StreamWriter(path + ".temp"))
                     {

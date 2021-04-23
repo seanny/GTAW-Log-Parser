@@ -1,14 +1,14 @@
-﻿using System;
+﻿using Assistant.Controllers;
+using Assistant.Localization;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
-using Assistant.Controllers;
-using Assistant.Localization;
 using System.Windows.Threading;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
 
 namespace Assistant.UI
 {
@@ -46,7 +46,7 @@ namespace Assistant.UI
                 _chatLog = value;
                 _chatLogLoaded = !string.IsNullOrEmpty(_chatLog);
                 StatusLabel.Content = string.Format(Strings.FilterLogStatus, _chatLogLoaded ? string.Empty : Strings.Negation, _chatLogLoaded ? string.Format(Strings.LoadedAt, DateTime.Now.ToString("HH:mm:ss")) : string.Empty);
-                StatusLabel.Foreground = _chatLogLoaded ? Brushes.Green: Brushes.Red;
+                StatusLabel.Foreground = _chatLogLoaded ? Brushes.Green : Brushes.Red;
             }
         }
 
@@ -150,7 +150,7 @@ namespace Assistant.UI
         {
             AppController.InitializeServerIp();
             ChatLog = AppController.ParseChatLog(Properties.Settings.Default.DirectoryPath, false, true);
-            
+
             if (_chatLogLoaded)
                 TryToFilter(true);
         }
@@ -231,7 +231,7 @@ namespace Assistant.UI
 
             if (entry != null)
                 _filterCriteria[entry.Value.Key] = Tuple.Create(_filterCriteria[entry.Value.Key].Item1, !_filterCriteria[entry.Value.Key].Item2);
-            
+
             if (_chatLogLoaded)
                 TryToFilter(true);
         }
@@ -256,7 +256,7 @@ namespace Assistant.UI
             {
                 if (!fastFilter)
                     MessageBox.Show(Strings.NoChatLogLoaded, Strings.Error, MessageBoxButton.OK, MessageBoxImage.Error);
-                
+
                 return;
             }
 
@@ -279,7 +279,7 @@ namespace Assistant.UI
                     // Assume the criterion is disabled
                     bool isCriterionEnabled = false;
                     bool matchedRegularCriterion = false;
-                    
+
                     // Loop through every criterion and check if the line matches any of them
                     foreach (KeyValuePair<string, Tuple<string, bool>> keyValuePair in _filterCriteria.Where(keyValuePair => !string.IsNullOrWhiteSpace(keyValuePair.Key) && !string.IsNullOrWhiteSpace(keyValuePair.Value.Item1)).Where(keyValuePair => Regex.IsMatch(Regex.Replace(line, @"\[\d{1,2}:\d{1,2}:\d{1,2}\] ", string.Empty), keyValuePair.Value.Item1, RegexOptions.IgnoreCase)))
                     {
@@ -395,9 +395,9 @@ namespace Assistant.UI
             {
                 if (string.IsNullOrWhiteSpace(line))
                     continue;
-                
+
                 string newLine = line.Trim();
-                
+
                 // NEW: Add the words to the final list
                 finalWords.Add(newLine);
 
@@ -438,7 +438,7 @@ namespace Assistant.UI
                 {
                     if (!Properties.Settings.Default.DisableErrorPopups)
                         MessageBox.Show(Strings.NothingFiltered, Strings.Error, MessageBoxButton.OK, MessageBoxImage.Error);
-                    
+
                     return;
                 }
 

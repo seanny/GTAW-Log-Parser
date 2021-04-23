@@ -1,10 +1,10 @@
-﻿using System;
-using System.Linq;
-using Assistant.UI;
-using System.Windows;
-using System.Threading;
+﻿using Assistant.Controllers;
 using Assistant.Properties;
-using Assistant.Controllers;
+using Assistant.UI;
+using System;
+using System.Linq;
+using System.Threading;
+using System.Windows;
 
 namespace Assistant
 {

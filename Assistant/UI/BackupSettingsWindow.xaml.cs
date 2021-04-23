@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Assistant.Controllers;
+using Assistant.Localization;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
-using Assistant.Controllers;
-using Assistant.Localization;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
 
 namespace Assistant.UI
 {

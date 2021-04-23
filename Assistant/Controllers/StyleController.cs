@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Assistant.Properties;
 using MahApps.Metro;
-using System.Windows;
 using Microsoft.Win32;
-using System.Management;
-using System.Windows.Media;
-using Assistant.Properties;
-using System.Security.Principal;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Management;
+using System.Security.Principal;
+using System.Windows;
+using System.Windows.Media;
 
 namespace Assistant.Controllers
 {
