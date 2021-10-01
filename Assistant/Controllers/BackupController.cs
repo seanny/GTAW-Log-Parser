@@ -130,11 +130,21 @@ namespace Assistant.Controllers
                 Process[] processes = Process.GetProcessesByName(AppController.ProcessName);
 
                 if (!isGameRunning && processes.Length != 0)
+                {
                     isGameRunning = true;
+                }
                 else if (isGameRunning && processes.Length == 0)
                 {
-                    isGameRunning = false;
-                    ParseThenSaveToFile(true);
+                    processes = Process.GetProcessesByName(AppController.AltProcessName);
+                    if (!isGameRunning && processes.Length != 0)
+                    {
+                        isGameRunning = true;
+                    }
+                    else
+                    {
+                        isGameRunning = false;
+                        ParseThenSaveToFile(true);
+                    }
                 }
 
                 Thread.Sleep(GameClosedCheckTime * 1000);

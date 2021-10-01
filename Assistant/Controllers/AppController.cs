@@ -1,4 +1,4 @@
-﻿using Assistant.Localization;
+using Assistant.Localization;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -19,6 +19,7 @@ namespace Assistant.Controllers
 
         public const string ParameterPrefix = "--";
         public const string ProcessName = "RAGEV";
+        public const string AltProcessName = "GTA5";
         public const string ProductHeader = "GTAW-Log-Parser";
         public static string ResourceDirectory;
         public static string LogLocation;
