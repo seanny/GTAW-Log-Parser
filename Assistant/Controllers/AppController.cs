@@ -11,15 +11,15 @@ namespace Assistant.Controllers
 {
     public static class AppController
     {
-        public const string AssemblyVersion = "4.1.2";
+        public const string AssemblyVersion = "4.1.8";
         public static readonly string Version = $"v{AssemblyVersion}";
         public const bool IsBetaVersion = false;
         public static bool CanFollowSystemColor = false;
         public static bool CanFollowSystemMode = false;
 
         public const string ParameterPrefix = "--";
-        public const string ProcessName = "RAGEV";
-        public const string AltProcessName = "GTA5";
+        public const string ProcessName = "GTA5";
+        public const string AltProcessName = "RAGEV";
         public const string ProductHeader = "GTAW-Log-Parser";
         public static string ResourceDirectory;
         public static string LogLocation;

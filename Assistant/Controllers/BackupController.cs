@@ -128,23 +128,16 @@ namespace Assistant.Controllers
             while (!Quitting && runBackgroundBackup)
             {
                 Process[] processes = Process.GetProcessesByName(AppController.ProcessName);
+                Process[] altProcesses = Process.GetProcessesByName(AppController.AltProcessName);
 
-                if (!isGameRunning && processes.Length != 0)
+                if (!isGameRunning && (processes.Length != 0 || altProcesses.Length != 0))
                 {
                     isGameRunning = true;
                 }
                 else if (isGameRunning && processes.Length == 0)
                 {
-                    processes = Process.GetProcessesByName(AppController.AltProcessName);
-                    if (!isGameRunning && processes.Length != 0)
-                    {
-                        isGameRunning = true;
-                    }
-                    else
-                    {
-                        isGameRunning = false;
-                        ParseThenSaveToFile(true);
-                    }
+                    isGameRunning = false;
+                    ParseThenSaveToFile(true);
                 }
 
                 Thread.Sleep(GameClosedCheckTime * 1000);
