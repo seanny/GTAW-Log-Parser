@@ -498,7 +498,7 @@ namespace Assistant.UI
             try
             {
                 string installedVersion = AppController.Version;
-                IReadOnlyList<Release> releases = _client.Repository.Release.GetAll("MapleToo", AppController.ProductHeader).Result;
+                IReadOnlyList<Release> releases = _client.Repository.Release.GetAll("seanny", AppController.ProductHeader).Result;
 
                 string newVersion = string.Empty;
                 bool isNewVersionBeta = false;
